@@ -1,29 +1,32 @@
 <script>
-	import BackgroundCircle from "./BackgroundCircle.svelte";
-	import Eyes from "./Eyes.svelte";
-	import Mouth from "./Mouth.svelte";
+	import Face from "./Face.svelte";
 
-	const width = 960;
-	const height = 500;
+	const width = 160;
+	const height = 160;
 	const centerX = width / 2;
 	const centerY = height / 2;
-	const strokeWidth = 10;
-	const eyeOffsetX = 90;
-	const eyeOffsetY = 100;
-	const eyeRadius = 50;
-	const mouthWidth = 20
-	const mouthRadius = 140
+	let strokeWidth = 6
+	let eyeOffsetX = 20
+	let eyeOffsetY = 20
+	let eyeRadius = 5
+	let mouthWidth = 7
+	let	mouthRadius = 30
 
 </script>
 
 <div class="container">
-	<svg {width} {height}>
-		<g transform={`translate(${centerX},${centerY})`}>
-			<BackgroundCircle {centerY} {strokeWidth}/>
-			<Eyes {eyeOffsetX} {eyeOffsetY} {eyeRadius} />
-			<Mouth {mouthRadius} {mouthWidth} />
-		</g>
-	</svg>
+	{#each Array(6 * 3) as _}
+	<Face
+		{width} {height}
+		{centerX} {centerY}
+		strokeWidth={strokeWidth + Math.random() * 3}
+		eyeOffsetX={eyeOffsetX + Math.random() * 9}
+		eyeOffsetY={eyeOffsetY + Math.random() * 15}
+		eyeRadius={eyeRadius + Math.random() * 10}
+		mouthWidth= {mouthWidth + Math.random() * 9}
+		mouthRadius={mouthRadius + Math.random() * 10}
+	/>
+	{/each}
 </div>
 
 <style>
