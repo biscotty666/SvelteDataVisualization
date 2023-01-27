@@ -1,6 +1,7 @@
 <script>
-	import { arc } from "d3";
 	import BackgroundCircle from "./BackgroundCircle.svelte";
+	import Eyes from "./Eyes.svelte";
+	import Mouth from "./Mouth.svelte";
 
 	const width = 960;
 	const height = 500;
@@ -13,30 +14,14 @@
 	const mouthWidth = 20
 	const mouthRadius = 140
 
-	const mouthArc = arc()
-		.innerRadius(mouthRadius)
-		.outerRadius(mouthRadius + mouthWidth)
-		.startAngle(Math.PI / 2)
-		.endAngle(Math.PI * 3 / 2);
-
-
 </script>
 
 <div class="container">
 	<svg {width} {height}>
 		<g transform={`translate(${centerX},${centerY})`}>
 			<BackgroundCircle {centerY} {strokeWidth}/>
-			<circle
-				cx={-eyeOffsetX}
-				cy={-eyeOffsetY}
-				r={eyeRadius}
-			/>
-			<circle
-				cx={eyeOffsetX}
-				cy={-eyeOffsetY}
-				r={eyeRadius}
-			/>
-			<path d={mouthArc()} />
+			<Eyes {eyeOffsetX} {eyeOffsetY} {eyeRadius} />
+			<Mouth {mouthRadius} {mouthWidth} />
 		</g>
 	</svg>
 </div>
