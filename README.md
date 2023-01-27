@@ -31,7 +31,26 @@ Based on [Curran Kelleher's](https://www.youtube.com/channel/UCSwd_9jyX4YtDYm9p9
 
 [Data Visualization Society (twitter)](https://twitter.com/DataVizSociety)
 
+[Our World in Data](https://ourworldindata.org/)
+
 ## Components
 
 [Blockbuilder Search (obsereablehq)](https://observablehq.com/@enjalot/blockbuilder-search-data)
 
+## Coronavirus
+
+### Existing Resources
+
+[Johns Hopkins CV Dataset](https://coronavirus.jhu.edu/)
+
+[Johns Hopkins Github](https://github.com/CSSEGISandData/COVID-19)
+
+[Our World in Data CV Visualizations](https://ourworldindata.org/explorers/coronavirus-data-explorer?zoomToSelection=true&country=~OWID_WRL&hideControls=true&Interval=Cumulative&Relative+to+Population=false&Metric=Confirmed+deaths&Color+by+test+positivity=false)
+
+[Our World in Data Github](https://github.com/owid/covid-19-data/tree/master/public/data)
+
+[Financial Times](https://www.ft.com/content/a2901ce8-5eb7-4633-b89c-cbdf5b386938)
+
+[Information is Beautiful Visualizations](https://informationisbeautiful.net/visualizations/covid-19-coronavirus-infographic-datapack/)
+
+[Information is Beautiful CV Dataset](https://covid.cd2h.org/node/71)
