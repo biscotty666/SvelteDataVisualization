@@ -1,5 +1,6 @@
 <script>
 	import { arc } from "d3";
+	import BackgroundCircle from "./BackgroundCircle.svelte";
 
 	const width = 960;
 	const height = 500;
@@ -17,17 +18,14 @@
 		.outerRadius(mouthRadius + mouthWidth)
 		.startAngle(Math.PI / 2)
 		.endAngle(Math.PI * 3 / 2);
+
+
 </script>
 
 <div class="container">
 	<svg {width} {height}>
 		<g transform={`translate(${centerX},${centerY})`}>
-			<circle
-				r={centerY - strokeWidth}
-				fill="yellow"
-				stroke="black"
-				stroke-width={strokeWidth}
-			/>
+			<BackgroundCircle {centerY} {strokeWidth}/>
 			<circle
 				cx={-eyeOffsetX}
 				cy={-eyeOffsetY}
