@@ -1,36 +1,19 @@
 <script>
-	import { page } from '$app/stores';
+	import { page } from "$app/stores";
 
-	const navs = [
-		{
-			title: 'Home',
-			href: '/'
-		},
-		{
-			title: 'Happy Faces',
-			href: '/happyfaces'
-		},
-		{
-			title: 'Sticky Circle',
-			href: '/stickycircle'
-		},
-		{
-			title: 'Colors',
-			href: '/colors'
-		}
-	];
 	$: routeId = $page.route.id;
+	
 </script>
 
 <nav>
 	<div class="container">
-		<h1><a href='/' class="active">Data Visualizations</a></h1>
+		<h1><a href="/" class="active">Data Visualizations</a></h1>
 		<ul>
-			{#each navs as { title, href }}
-				<li>
-					<a {href} class:active={routeId == href} {title}>{title}</a>
-				</li>
-			{/each}
+			<li>
+				<a href="/happyfaces" class:active={routeId == "/happyfaces"}>Happy Faces</a>
+				<a href="/stickycircle" class:active={routeId == "/stickycircle"}>Sticky Circle</a>
+				<a href="/colors" class:active={routeId == "/colors"}>Colors</a>
+			</li>
 		</ul>
 	</div>
 </nav>
@@ -49,6 +32,7 @@
 	a {
 		color: #aaa;
 		text-decoration: none;
+		padding-left: 5px;
 	}
 
 	.active {
@@ -70,4 +54,5 @@
 		font-size: 1.1em;
 		font-weight: normal;
 	}
+
 </style>
