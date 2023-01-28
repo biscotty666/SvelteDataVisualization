@@ -1,4 +1,4 @@
-[Project](https://sveltekit-1-m9bg5j8b9-biscotty666.vercel.app)
+[Project](https://sveltekit-1-biscotty666.vercel.app/)
 
 # D3 With Svelte
 
