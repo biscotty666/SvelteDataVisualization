@@ -1,23 +1,24 @@
 import { csv } from "d3"
 
-const csvUrl = 'https://gist.githubusercontent.com/curran/b236990081a24761f7000567094914e0/raw/cssNamedColors.csv'
+const csvUrl = 'https://gist.githubusercontent.com/biscotty666/9dcc3e250f5772e16e2b5112e02aada0/raw/9641241fd523523eb5c2c416482acea1105048ff/UNPopProj.csv'
 
 export const load = async () => {
   
-	const getColors = async () => {
-    // const row = d => {
+	const getPop = async () => {
+    const row = d => {
+      d.Population = +d['2100']
     //   d.sepal_length = +d.sepal_length
     //   d.sepal_width = +d.sepal_width
     //   d.petal_length = +d.petal_length
     //   d.petal_width = +d.petal_width
-    //   return d
-    // }
-    const data = await csv(csvUrl)
-    console.log(data)
-    return data
+      return d
+    }
+    const data = await csv(csvUrl, row)
+    // console.log(data[0])
+    return data.slice(0,10)
 	};
 
   return {
-    colors: getColors()
+    pop: getPop()
   }
 }

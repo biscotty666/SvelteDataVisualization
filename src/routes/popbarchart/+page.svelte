@@ -1,28 +1,29 @@
 <script>
-  import { arc } from "d3";
+  import { scaleBand, scaleLinear, max } from "d3";
   export let data;
 
-  const { colors } = data;
+  const { pop } = data;
   const width = 960;
   const height = 500;
-  const centerX = width / 2;
-  const centerY = height / 2;
+  const yScale = scaleBand()
+    .domain(pop.map(pop => pop.Country))
+    .range([0, height])
 
-  const pieArc = arc()
-    .innerRadius(0)
-    .outerRadius(width)
+  const xScale = scaleLinear()
+    .domain([0, max(pop, d => d.Population)])
+    .range([0, width])
+
 </script>
 
 <div class="container">
   <svg {width} {height}>
-    <g transform={`translate(${centerX}, ${centerY})`}>
-      {#each colors as color, i}
-        <path fill={color["RGB hex value"]} d={pieArc({
-          startAngle: i / colors.length * 2 * Math.PI,
-          endAngle: (i+1) / colors.length * 2 * Math.PI
-        })} />
-      {/each}
-    </g>
+    {#each pop as country}
+      <rect 
+        x={0} 
+        y={yScale(country.Country)} 
+        width={xScale(country.Population)}
+        height= {yScale.bandwidth()}/>
+    {/each}
   </svg>
 </div>
 
