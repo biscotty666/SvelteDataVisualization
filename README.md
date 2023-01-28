@@ -10,6 +10,8 @@ Based on [Curran Kelleher's](https://www.youtube.com/channel/UCSwd_9jyX4YtDYm9p9
 
 ## Tech Resources
 
+[Sunlight Foundation Data Visualization Style Guide](https://sunlightfoundation.com/2014/03/12/datavizguide/)
+
 [SVG](https://developer.mozilla.org/en-US/docs/Web/SVG)
 
 ## Finding Visualizations

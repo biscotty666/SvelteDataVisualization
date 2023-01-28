@@ -4,6 +4,7 @@
   export let yScale
   export let xValue
   export let yValue
+  export let tooltipFormat
 </script>
 
 {#each pop as d}
@@ -12,6 +13,14 @@
   y={yScale(yValue(d))}
   width={xScale(xValue(d))}
   height={yScale.bandwidth()}
-/>
+>
+ <title>{tooltipFormat(xValue(d))}</title>
+</rect>
+
 {/each}
 
+<style>
+  rect {
+    fill: #137B80;
+  }
+</style>

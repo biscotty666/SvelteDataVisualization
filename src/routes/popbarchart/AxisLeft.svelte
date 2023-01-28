@@ -13,3 +13,10 @@
 </text>
 {/each}
 
+<style>
+  text {
+    font-family: sans-serif;
+    fill: #4285B3;
+  }
+</style>
+

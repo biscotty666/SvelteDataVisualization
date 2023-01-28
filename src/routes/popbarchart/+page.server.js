@@ -6,7 +6,7 @@ export const load = async () => {
   
 	const getPop = async () => {
     const row = d => {
-      d.Population = +d['2100']
+      d.Population = +d['2100'] * 1000
     //   d.sepal_length = +d.sepal_length
     //   d.sepal_width = +d.sepal_width
     //   d.petal_length = +d.petal_length
