@@ -31,7 +31,7 @@
     <g transform={`translate(${margin.left}, ${margin.top})`}>
       <AxisBottom {xScale} {innerHeight} />
       <AxisLeft {yScale} />
-      <Marks {pop} {yScale} {xScale} />
+      <Marks {pop} {yScale} {xScale} {yValue} {xValue}/>
     </g>
   </svg>
 </div>
