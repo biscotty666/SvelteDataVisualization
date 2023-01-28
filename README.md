@@ -4,6 +4,9 @@
 
 Based on [Curran Kelleher's](https://www.youtube.com/channel/UCSwd_9jyX4YtDYm9p9MxQqw) excellent Series using D3 with React.
 
+## Project data resources
+
+[UN World Population Prospects](https://population.un.org/wpp/Download/Standard/MostUsed/)
 
 ## Tech Resources
 
