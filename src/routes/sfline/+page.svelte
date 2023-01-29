@@ -13,6 +13,8 @@
   const xAxisLabelOffset = 50;
   const yAxisLabelOffset = 250
 
+  const circleRadius = 2.5
+
   const xAxisTickFormat = timeFormat("%a");
 
   const innerHeight = height - margin.top - margin.bottom;
@@ -32,6 +34,7 @@
   const yScale = scaleLinear()
     .domain(extent(theData, yValue))
     .range([innerHeight, 0])
+    .nice()
 
 </script>
 
@@ -72,7 +75,7 @@
           {yValue}
           {xValue}
           tooltipFormat={xAxisTickFormat}
-          circleRadius={7}
+          circleRadius={circleRadius}
         />
       </g>
     </svg>

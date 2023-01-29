@@ -10,7 +10,8 @@
 		<h1><a href="/" class="active">Data Visualizations</a></h1>
 		<ul>
 			<li>
-				<a href="/irisscatter" class:active={routeId == "/irisscatter"}>Iris</a>
+				<a href="/sfline" class:active={routeId == "/sfline"}>SF Line</a>
+				<a href="/irisscatter" class:active={routeId == "/irisscatter"}>Iris Scatter</a>
 				<a href="/popbarchart" class:active={routeId == "/popbarchart"}>UN Pop Preds</a>
 				<a href="/happyfaces" class:active={routeId == "/happyfaces"}>Happy Faces</a>
 				<a href="/stickycircle" class:active={routeId == "/stickycircle"}>Sticky Circle</a>
