@@ -7,14 +7,11 @@
 
 <nav>
 	<div class="container">
-		<h1><a href="/" class="active">Data Visualizations</a></h1>
 		<ul>
 			<li>
-				<a href="/mmworldmap" class:active={routeId == "/mmworldmap"}>World Map</a>
-				<a href="/sfline" class:active={routeId == "/sfline"}>SF Line</a>
-				<a href="/irisscatter" class:active={routeId == "/irisscatter"}>Iris Scatter</a>
-				<a href="/popbarchart" class:active={routeId == "/popbarchart"}>UN Pop Preds</a>
-				<a href="/demos/colors" class:active={routeId == "/demos/colors"}>Demos</a>
+				<a href="/demos/happyfaces" class:active={routeId == "/demos/happyfaces"}>Happy Faces</a>
+				<a href="/demos/stickycircle" class:active={routeId == "/demos/stickycircle"}>Sticky Circle</a>
+				<a href="/demos/colors" class:active={routeId == "/demos/colors"}>Colors</a>
 			</li>
 		</ul>
 	</div>

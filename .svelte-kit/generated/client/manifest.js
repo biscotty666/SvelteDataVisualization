@@ -9,19 +9,20 @@ export const nodes = [() => import('./nodes/0'),
 	() => import('./nodes/6'),
 	() => import('./nodes/7'),
 	() => import('./nodes/8'),
-	() => import('./nodes/9')];
+	() => import('./nodes/9'),
+	() => import('./nodes/10')];
 
 export const server_loads = [];
 
 export const dictionary = {
-	"/": [~2],
-	"/colors": [~3],
-	"/happyfaces": [4],
-	"/irisscatter": [~5],
-	"/mmworldmap": [~6],
-	"/popbarchart": [~7],
-	"/sfline": [~8],
-	"/stickycircle": [9]
+	"/": [~3],
+	"/demos/colors": [~4,[2]],
+	"/demos/happyfaces": [5,[2]],
+	"/demos/stickycircle": [6,[2]],
+	"/irisscatter": [~7],
+	"/mmworldmap": [~8],
+	"/popbarchart": [~9],
+	"/sfline": [~10]
 };
 
 export const hooks = {

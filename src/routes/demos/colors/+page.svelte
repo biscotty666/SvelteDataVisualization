@@ -14,6 +14,7 @@
 </script>
 
 <div class="container">
+  <h1>An SVG color wheel of named CSS Colors</h1>
   <svg {width} {height}>
     <g transform={`translate(${centerX}, ${centerY})`}>
       {#each colors as color, i}
@@ -27,4 +28,8 @@
 </div>
 
 <style>
+  h1 {
+    text-align: center;
+    font-family: Roboto, sans-serif;
+  }
 </style>
