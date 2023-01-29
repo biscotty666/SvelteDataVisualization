@@ -8,6 +8,10 @@ Based on [Curran Kelleher's](https://www.youtube.com/channel/UCSwd_9jyX4YtDYm9p9
 
 [UN World Population Prospects](https://population.un.org/wpp/Download/Standard/MostUsed/)
 
+[Data Canvas: Sense Your City](https://grayarea.org/initiative/data-canvas-sense-your-city/)
+
+[Curran's Sense Your City Data]('https://gist.githubusercontent.com/curran/90240a6d88bdb1411467b21ea0769029/raw/7d4c3914cc6a29a7f5165f7d5d82b735d97bcfe4/week_temperature_sf.csv')
+
 ## Tech Resources
 
 [Sunlight Foundation Data Visualization Style Guide](https://sunlightfoundation.com/2014/03/12/datavizguide/)
