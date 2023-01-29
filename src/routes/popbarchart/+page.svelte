@@ -30,7 +30,7 @@
     .range([0, innerWidth]);
 
 </script>
-
+{#if data}
 <div class="container">
   <h1>Top Ten Countries By Population in 2100</h1>
   <h3>From <a href='https://population.un.org/wpp/Download/Standard/MostUsed/'>UN Predictive Data</a></h3>
@@ -60,7 +60,9 @@
     </g>
   </svg>
 </div>
-
+{:else}
+  <p>Loading...</p>
+{/if}
 <style>
   h1, h3 {
     text-align: center;
