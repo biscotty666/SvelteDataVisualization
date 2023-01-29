@@ -72,6 +72,7 @@ declare module '$env/static/private' {
 	export const npm_package_description: string;
 	export const NVM_DIR: string;
 	export const npm_package_readmeFilename: string;
+	export const npm_package_dependencies_topojson: string;
 	export const npm_package_dependencies_d3: string;
 	export const MANDATORY_PATH: string;
 	export const IM_CONFIG_PHASE: string;
@@ -244,6 +245,7 @@ declare module '$env/dynamic/private' {
 		npm_package_description: string;
 		NVM_DIR: string;
 		npm_package_readmeFilename: string;
+		npm_package_dependencies_topojson: string;
 		npm_package_dependencies_d3: string;
 		MANDATORY_PATH: string;
 		IM_CONFIG_PHASE: string;

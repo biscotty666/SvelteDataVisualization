@@ -12,6 +12,10 @@ Based on [Curran Kelleher's](https://www.youtube.com/channel/UCSwd_9jyX4YtDYm9p9
 
 [Curran's Sense Your City Data]('https://gist.githubusercontent.com/curran/90240a6d88bdb1411467b21ea0769029/raw/7d4c3914cc6a29a7f5165f7d5d82b735d97bcfe4/week_temperature_sf.csv')
 
+[Natural Earth TopoJSON](https://github.com/topojson/world-atlas)
+
+[unpkg world-atlas ](https://unpkg.com/world-atlas@2.0.2/countries-50m.json)
+
 ## Tech Resources
 
 [Sunlight Foundation Data Visualization Style Guide](https://sunlightfoundation.com/2014/03/12/datavizguide/)
