@@ -14,6 +14,7 @@
 </script>
 
 <div class="container">
+	<h1>Random Faces</h1>
 	{#each Array(6 * 3) as _}
 	<Face
 		{width} {height}
@@ -26,7 +27,12 @@
 		mouthRadius={mouthRadius + Math.random() * 10}
 	/>
 	{/each}
+	<p>Demonstrates looping and component management with Svelte</p>
 </div>
 
 <style>
+	.container {
+		text-align: center;
+		font-family: Roboto, sans-serif;
+	}
 </style>

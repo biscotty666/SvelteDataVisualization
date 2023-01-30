@@ -1,1 +1,1 @@
-export { default as component } from "../../../../src/routes/stickycircle/+page.svelte";
+export { default as component } from "../../../../src/routes/popbarchart/+page.svelte";

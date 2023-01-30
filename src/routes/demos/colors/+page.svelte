@@ -25,11 +25,12 @@
       {/each}
     </g>
   </svg>
+  <p>Demonstrates data loading with d3 and svelte as well as working with svg</p>
 </div>
 
 <style>
-  h1 {
-    text-align: center;
-    font-family: Roboto, sans-serif;
-  }
+	.container {
+		text-align: center;
+		font-family: Roboto, sans-serif;
+	}
 </style>
