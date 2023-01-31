@@ -1,8 +1,9 @@
 <script>
-  import { scaleBand, scaleLinear, max, min, extent, format } from "d3";
+  import { scaleOrdinal, scaleLinear, max, min, extent, format } from "d3";
   import AxisBottom from "./AxisBottom.svelte";
   import AxisLeft from "./AxisLeft.svelte";
   import Marks from "./Marks.svelte";
+  import ColorLegend from "./ColorLegend.svelte";
 
   export let data;
 
@@ -36,7 +37,6 @@
   let xAxisLabel = getLabel(xSelectedValue);
   let isChangedX = false;
   let xValue = (flowers) => flowers[xSelectedValue];
-  let colorValue = (flowers) => flowers['species'];
   let xScale = scaleLinear()
     .domain(extent(flowers, xValue))
     .range([0, innerWidth])
@@ -76,14 +76,39 @@
     }
   }
 
-  console.log(xValue);
+  let colorValue = (flowers) => flowers['species'];
+  const colors = ['#E6842A', '#137B80', '#8E6C8A']
+  const colorScale = scaleOrdinal()
+    .domain(flowers.map(colorValue))
+    .range(colors)
+
+  const colorDomain = colorScale.domain()
+
+  $: reactiveFilters = [...colors];
+  $: reactiveFilter = (color) => {
+    if (reactiveFilters.includes(color)) reactiveFilters = reactiveFilters.filter((col) => col !== color);
+    else reactiveFilters = [...reactiveFilters, color];
+  };
 
 </script>
-
+<h1>The Iris Dataset</h1>
 {#if data}
   <div class="container">
+    {#if flowers}
+    <div class="legend">
+    <h3 class="legend_title"><b>Legend</b></h3>
+    <!-- <h5 class="legend_note">Click to Filter</h5> -->
+      {#each colorDomain as color, i}  
+        <!-- <div class="scatter_legend_info" > -->
+        <div class="scatter_legend" on:click={() => reactiveFilter(colors[i])}>
+          <span class="scatter_legend_span" style="color: {colors[i]}; ">&#8226;</span>
+          {color}
+        </div>
+      {/each}
+    </div>
+    {/if}
+ 
     <div class="menus">
-      <p>{colorValue}</p>
       <label for="x-select">X Axis:</label>
       <select
         id="x-select"
@@ -104,6 +129,8 @@
           <option value={option.value}>{option.label}</option>
         {/each}
       </select>
+
+  
     </div>
     <svg {width} {height}>
       <g transform={`translate(${margin.left}, ${margin.top})`}>
@@ -135,11 +162,14 @@
           {xScale}
           {yValue}
           {xValue}
+          {colorScale}
+          {colorValue}
           tooltipFormat={xAxisTickFormat}
           circleRadius={7}
         />
       </g>
     </svg>
+
   </div>
 {:else}
   <p>Loading...</p>
@@ -147,6 +177,7 @@
 
 <style>
   .container {
+    /* display: flex; */
     text-align: center;
     font-family: Roboto, sans-serif;
     color: #005d6e;
@@ -162,9 +193,35 @@
   .menus {
     align-items: center;
     width: 100%;
-    font-size: 2em;
+    font-size: 1.5em;
   }
   select {
+    font-size: .75em;
+  }
+    .legend {
+    /* padding: 0px; */
+    /* display: flex; */
+    margin-top: 10px;
+    margin-bottom: 15px;
+    width: 150px;
+    border: 1px black solid;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .scatter_legend {
     font-size: 1em;
   }
+  .scatter_legend_span {
+    font-size: 1.5em;
+    line-height: .5em;
+  }
+  .legend_title {
+    padding: 0px;
+    margin-top: 2px;
+    margin-bottom: 3px;
+  }
+  h1 {
+    text-align: center;
+  }
+
 </style>

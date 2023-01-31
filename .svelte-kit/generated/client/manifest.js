@@ -12,7 +12,8 @@ export const nodes = [() => import('./nodes/0'),
 	() => import('./nodes/9'),
 	() => import('./nodes/10'),
 	() => import('./nodes/11'),
-	() => import('./nodes/12')];
+	() => import('./nodes/12'),
+	() => import('./nodes/13')];
 
 export const server_loads = [];
 
@@ -26,7 +27,8 @@ export const dictionary = {
 	"/irisscatter": [~9],
 	"/mmworldmap": [~10],
 	"/popbarchart": [~11],
-	"/sfline": [~12]
+	"/scattertest": [12],
+	"/sfline": [~13]
 };
 
 export const hooks = {

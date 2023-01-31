@@ -6,12 +6,15 @@
   export let yValue
   export let tooltipFormat
   export let circleRadius
+  export let colorScale
+  export let colorValue
 </script>
 
 {#each flowers as d}
 <circle
   cx={xScale(xValue(d))}
   cy={yScale(yValue(d))}
+  fill={colorScale(colorValue(d))}
   r={circleRadius}
 >
  <title>{tooltipFormat(xValue(d))}</title>
@@ -20,7 +23,7 @@
 {/each}
 
 <style>
-  circle {
+  /* circle {
     fill: #137B80;
-  }
+  } */
 </style>
