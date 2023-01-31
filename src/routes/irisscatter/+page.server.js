@@ -13,7 +13,7 @@ export const load = async () => {
       return d
     }
     const data = await csv(csvUrl, row)
-    console.log(data)
+    // console.log(data)
     return data
 	};
 

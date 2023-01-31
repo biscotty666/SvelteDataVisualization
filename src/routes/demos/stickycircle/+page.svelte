@@ -5,6 +5,8 @@
 	const yPositionOffset = -150
 
 	$: mousePosition = {x: width/2, y:height/2}
+	
+	console.log(mousePosition);
 
 	const handleMouseMove = (event) => {
 		const { clientX, clientY } = event
@@ -24,9 +26,6 @@
 		/>
 	</svg>
 	<p>Demonstrates state management in Svelte</p>
-	<pre>
-		&lt;h1&gt;Hello&lt;/h1&gt;
-	</pre>
 </div>
 
 <style>

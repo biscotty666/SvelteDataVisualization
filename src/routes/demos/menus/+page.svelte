@@ -25,7 +25,10 @@
 		{/each}	
 	</select>
 	<p>
-		Selected {JSON.stringify(selected)}
+		Keys {Object.keys(selected)}
+	</p>
+	<p>
+		Selected {selected['id']}
 	</p>
 </div>
 
