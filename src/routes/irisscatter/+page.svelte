@@ -19,10 +19,10 @@
   const innerWidth = width - margin.left - margin.right;
 
   const options = [
-    { id: "1", value: "sepal_length", label: "Sepal Length" },
-    { id: "2", value: "sepal_width", label: "Sepal Width" },
-    { id: "3", value: "petal_length", label: "Petal Length" },
-    { id: "4", value: "petal_width", label: "Petal Width" },
+    { value: "sepal_length", label: "Sepal Length" },
+    { value: "sepal_width", label: "Sepal Width" },
+    { value: "petal_length", label: "Petal Length" },
+    { value: "petal_width", label: "Petal Width" },
   ];
 
   const getLabel = (value) => {
@@ -36,6 +36,7 @@
   let xAxisLabel = getLabel(xSelectedValue);
   let isChangedX = false;
   let xValue = (flowers) => flowers[xSelectedValue];
+  let colorValue = (flowers) => flowers['species'];
   let xScale = scaleLinear()
     .domain(extent(flowers, xValue))
     .range([0, innerWidth])
@@ -74,11 +75,15 @@
       isChangedY = false;
     }
   }
+
+  console.log(xValue);
+
 </script>
 
 {#if data}
   <div class="container">
     <div class="menus">
+      <p>{colorValue}</p>
       <label for="x-select">X Axis:</label>
       <select
         id="x-select"
@@ -141,8 +146,7 @@
 {/if}
 
 <style>
-  h1,
-  h3 {
+  .container {
     text-align: center;
     font-family: Roboto, sans-serif;
     color: #005d6e;
@@ -156,7 +160,11 @@
     font-family: Roboto;
   }
   .menus {
-    display: flex;
     align-items: center;
+    width: 100%;
+    font-size: 2em;
+  }
+  select {
+    font-size: 1em;
   }
 </style>
