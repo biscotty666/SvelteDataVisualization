@@ -9,6 +9,7 @@
 	<div class="container">
 		<ul>
 			<li>
+				<a href="/demos/sfline" class:active={routeId == "/demos/sfline"}>Line</a>
 				<a href="/demos/worldmap" class:active={routeId == "/demos/worldmap"}>World Map</a>
 				<a href="/demos/menus" class:active={routeId == "/demos/menus"}>Menus</a>
 				<a href="/demos/happyfaces" class:active={routeId == "/demos/happyfaces"}>Happy Faces</a>

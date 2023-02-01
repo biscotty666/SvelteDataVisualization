@@ -1,1 +1,1 @@
-export { default as component } from "../../../../src/routes/sfline/+page.svelte";
+export { default as component } from "../../../../src/routes/worldmapcities/+page.svelte";
