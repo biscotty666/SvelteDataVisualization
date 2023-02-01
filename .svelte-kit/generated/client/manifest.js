@@ -14,7 +14,8 @@ export const nodes = [() => import('./nodes/0'),
 	() => import('./nodes/11'),
 	() => import('./nodes/12'),
 	() => import('./nodes/13'),
-	() => import('./nodes/14')];
+	() => import('./nodes/14'),
+	() => import('./nodes/15')];
 
 export const server_loads = [];
 
@@ -30,6 +31,7 @@ export const dictionary = {
 	"/mmworldmap": [~11],
 	"/popbarchart": [~12],
 	"/scattertest": [13],
+	"/worldmapcitiessize": [~15],
 	"/worldmapcities": [~14]
 };
 

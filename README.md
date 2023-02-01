@@ -1,6 +1,8 @@
 # Project  running at
 
-### [Project](https://sveltekit-1-biscotty666.vercel.app/)
+### [Project (Vercel)](https://sveltekit-1-biscotty666.vercel.app/)
+
+### [Project (GitHub)](https://sveltekit-1-biscotty666.vercel.app/)
 
 # D3 With Svelte
 

@@ -10,7 +10,8 @@
 		<h1><a href="/" class="active">Data Visualizations</a></h1>
 		<ul>
 			<li>
-				<a href="/worldmapcities" class:active={routeId == "/worldmapcities"}>Cities 50k</a>
+				<a href="/worldmapcities" class:active={routeId == "/worldmapcities"}>Cities Map</a>
+				<a href="/worldmapcitiessize" class:active={routeId == "/worldmapcitiessize"}>Cities Size Map</a>
 				<a href="/irisscatter" class:active={routeId == "/irisscatter"}>Iris Scatter</a>
 				<a href="/popbarchart" class:active={routeId == "/popbarchart"}>UN Pop Preds</a>
 				<a href="/demos/colors" class:active={routeId == "/demos/colors"}>Demos</a>
