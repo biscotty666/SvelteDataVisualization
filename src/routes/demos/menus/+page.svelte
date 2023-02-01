@@ -24,9 +24,7 @@
 			<option value={option.id}>{option.value}</option>
 		{/each}	
 	</select>
-	<p>
-		Keys {Object.keys(selected)}
-	</p>
+
 	<p>
 		Selected {selected['id']}
 	</p>
