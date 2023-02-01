@@ -5,8 +5,8 @@
 <div class="container">
 <h1>Data Visualizations</h1>
 <h1 id="project--running-at">Project  running at</h1>
-<h3><a href="https://sveltekit-1-biscotty666.vercel.app/">Project</a></p>
-<h1 id="d3-with-svelte">D3 With Svelte</h3>
+<h3><a href="https://sveltekit-1-biscotty666.vercel.app/">Project</a></h3>
+<h1 id="d3-with-svelte">D3 With Svelte</h1>
 <p>Based on <a href="https://www.youtube.com/channel/UCSwd_9jyX4YtDYm9p9MxQqw">Curran Kelleher&#39;s</a> excellent Series using D3 with React.</p>
 <h2 id="project-data-resources">Project data resources</h2>
 <p><a href="https://population.un.org/wpp/Download/Standard/MostUsed/">UN World Population Prospects</a></p>
