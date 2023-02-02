@@ -202,6 +202,7 @@
                 {color}
               </div>
             {/each}
+            <p>Hover to view species</p>
           </div>
         </div>
       {/if}
@@ -241,6 +242,9 @@
     font-size: 2.5em;
     fill: #005d6e;
     font-family: Roboto;
+  }
+  p {
+    font-size: .8em;
   }
   .menus {
     align-items: center;
