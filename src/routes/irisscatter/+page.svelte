@@ -8,7 +8,7 @@
   export let data;
 
   const { flowers } = data;
-  const width = 960;
+  const width = 860;
   const height = 500;
   const margin = { top: 30, right: 10, bottom: 65, left: 100 };
   const xAxisLabelOffset = 50;
@@ -49,7 +49,7 @@
         .domain(extent(flowers, xValue))
         .range([0, innerWidth])
         .nice();
-      xAxisLabel = getLabel(xSelectedValue)
+      xAxisLabel = getLabel(xSelectedValue);
       isChangedX = false;
       console.log(xValue);
       console.log(xSelectedValue);
@@ -76,100 +76,135 @@
     }
   }
 
-  let colorValue = (flowers) => flowers['species'];
-  const colors = ['#E6842A', '#137B80', '#8E6C8A']
+  let colorValue = (flowers) => flowers["species"];
+  const colors = ["#E6842A", "#137B80", "#8E6C8A"];
+  const colorMap = {
+    '#E6842A': 'setosa',
+    "#137B80": 'versicolor',
+    "#8E6C8A": "virginica"
+  }
+  console.log(colorMap['#137B80']);
+
   const colorScale = scaleOrdinal()
     .domain(flowers.map(colorValue))
-    .range(colors)
+    .range(colors);
 
-  const colorDomain = colorScale.domain()
-
-  $: reactiveFilters = [...colors];
-  $: reactiveFilter = (color) => {
-    if (reactiveFilters.includes(color)) reactiveFilters = reactiveFilters.filter((col) => col !== color);
-    else reactiveFilters = [...reactiveFilters, color];
+  let filteredFlowers = flowers
+  let searchTerm = "";
+  const colorDomain = colorScale.domain();
+  let isFiltered = false
+  $: {
+    if (isFiltered) {
+      filteredFlowers = filterHandler(flowers, searchTerm);
+      isFiltered = false
+    }
+  }
+  const filterHandler = (flowers, color) => {
+    return flowers.filter((flower) => flower.species === color);
   };
 
+  const unFilter = () => {
+    filteredFlowers = flowers
+  }
+
+  const filter = (colorValue) => {
+    searchTerm = colorMap[colorValue]
+    isFiltered = true
+  }
+
 </script>
+
 <h1>The Iris Dataset</h1>
 {#if data}
   <div class="container">
-    {#if flowers}
-    <div class="legend">
-    <h3 class="legend_title"><b>Legend</b></h3>
-    <!-- <h5 class="legend_note">Click to Filter</h5> -->
-      {#each colorDomain as color, i}  
-        <!-- <div class="scatter_legend_info" > -->
-        <div class="scatter_legend" on:click={() => reactiveFilter(colors[i])}>
-          <span class="scatter_legend_span" style="color: {colors[i]}; ">&#8226;</span>
-          {color}
+    <div class="plot">
+      <div class="menus">
+        <label for="x-select">X Axis:</label>
+        <select
+          id="x-select"
+          bind:value={xSelectedValue}
+          on:change={() => (isChangedX = true)}
+        >
+          {#each options as option}
+            <option value={option.value}>{option.label}</option>
+          {/each}
+        </select>
+        <label for="y-select">Y Axis:</label>
+        <select
+          id="y-select"
+          bind:value={ySelectedValue}
+          on:change={() => (isChangedY = true)}
+        >
+          {#each options as option}
+            <option value={option.value}>{option.label}</option>
+          {/each}
+        </select>
+      </div>
+      <svg {width} {height}>
+        <g transform={`translate(${margin.left}, ${margin.top})`}>
+          <AxisBottom
+            {xScale}
+            {innerHeight}
+            tickFormat={xAxisTickFormat}
+            tickOffset={5}
+          />
+          <text
+            x={yAxisLabelOffset}
+            y={innerHeight / 2}
+            text-anchor="middle"
+            transform={`translate(${-yAxisLabelOffset},${innerHeight}) rotate(-90)`}
+          >
+            {yAxisLabel}
+          </text>
+          <AxisLeft {yScale} {innerWidth} tickOffset={7} />
+          <text
+            x={innerWidth / 2}
+            y={innerHeight + xAxisLabelOffset}
+            text-anchor="middle"
+          >
+            {xAxisLabel}
+          </text>
+          <Marks
+            {filteredFlowers}
+            {yScale}
+            {xScale}
+            {yValue}
+            {xValue}
+            {colorScale}
+            {colorValue}
+            tooltipFormat={xAxisTickFormat}
+            circleRadius={7}
+          />
+        </g>
+      </svg>
+    </div>
+      {#if flowers}
+        <div class="legend" >
+          <div class="legend-title">
+            <h3 class="legend_title"><b>Species</b></h3>
+          </div>
+          <div 
+            class="legend-items" 
+          >
+            {#each colorDomain as color, i}
+              <!-- <div class="scatter_legend_info" > -->
+              <div
+                class="scatter_legend"
+                on:mouseenter={() => {filter(colors[i])}}
+                on:mouseleave={() => {unFilter()}}
+                  >
+                <span 
+                  class="scatter_legend_span" 
+                  style="color: {colors[i]};"
+                  on:click={() => reactiveFilter(colors[i])}
+                  >&#8226;</span
+                >
+                {color}
+              </div>
+            {/each}
+          </div>
         </div>
-      {/each}
-    </div>
-    {/if}
- 
-    <div class="menus">
-      <label for="x-select">X Axis:</label>
-      <select
-        id="x-select"
-        bind:value={xSelectedValue}
-        on:change={() => (isChangedX = true)}
-      >
-        {#each options as option}
-          <option value={option.value}>{option.label}</option>
-        {/each}
-      </select>
-      <label for="y-select">Y Axis:</label>
-      <select
-        id="y-select"
-        bind:value={ySelectedValue}
-        on:change={() => (isChangedY = true)}
-      >
-        {#each options as option}
-          <option value={option.value}>{option.label}</option>
-        {/each}
-      </select>
-
-  
-    </div>
-    <svg {width} {height}>
-      <g transform={`translate(${margin.left}, ${margin.top})`}>
-        <AxisBottom
-          {xScale}
-          {innerHeight}
-          tickFormat={xAxisTickFormat}
-          tickOffset={5}
-        />
-        <text
-          x={yAxisLabelOffset}
-          y={innerHeight / 2}
-          text-anchor="middle"
-          transform={`translate(${-yAxisLabelOffset},${innerHeight}) rotate(-90)`}
-        >
-          {yAxisLabel}
-        </text>
-        <AxisLeft {yScale} {innerWidth} tickOffset={7} />
-        <text
-          x={innerWidth / 2}
-          y={innerHeight + xAxisLabelOffset}
-          text-anchor="middle"
-        >
-          {xAxisLabel}
-        </text>
-        <Marks
-          {flowers}
-          {yScale}
-          {xScale}
-          {yValue}
-          {xValue}
-          {colorScale}
-          {colorValue}
-          tooltipFormat={xAxisTickFormat}
-          circleRadius={7}
-        />
-      </g>
-    </svg>
-
+      {/if}
   </div>
 {:else}
   <p>Loading...</p>
@@ -177,10 +212,27 @@
 
 <style>
   .container {
-    /* display: flex; */
+    display: grid;
+    grid-template-columns: 1fr, 80px;
+    grid-auto-rows: auto;
+    align-items: center;
+    row-gap: 0px;
+    column-gap: 0px;
+    width: 100%;
     text-align: center;
     font-family: Roboto, sans-serif;
     color: #005d6e;
+  }
+  .plot {
+    grid-row: 1;
+  }
+  .legend {
+    /* background-color: cyan; */
+    grid-row: 1;
+    width: 100px;
+    height: 100px;
+    border: 1px black solid;
+    margin: 0px;
   }
   a {
     text-decoration: none;
@@ -196,32 +248,24 @@
     font-size: 1.5em;
   }
   select {
-    font-size: .75em;
-  }
-    .legend {
-    /* padding: 0px; */
-    /* display: flex; */
-    margin-top: 10px;
-    margin-bottom: 15px;
-    width: 150px;
-    border: 1px black solid;
-    margin-left: auto;
-    margin-right: auto;
+    font-size: 0.75em;
   }
   .scatter_legend {
     font-size: 1em;
   }
   .scatter_legend_span {
     font-size: 1.5em;
-    line-height: .5em;
+    line-height: 0.5em;
   }
   .legend_title {
-    padding: 0px;
+    padding-bottom: 3px;
     margin-top: 2px;
     margin-bottom: 3px;
+  }
+  .legend-items {
+    padding-bottom: 3px;
   }
   h1 {
     text-align: center;
   }
-
 </style>

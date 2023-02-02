@@ -10,6 +10,8 @@ Based on [Curran Kelleher's](https://www.youtube.com/channel/UCSwd_9jyX4YtDYm9p9
 
 ## Project data resources
 
+[Missing Migrants Project](https://missingmigrants.iom.int/data)
+
 [Simplemaps World Cities Database](https://simplemaps.com/data/world-cities)
 
 [UN World Population Prospects](https://population.un.org/wpp/Download/Standard/MostUsed/)

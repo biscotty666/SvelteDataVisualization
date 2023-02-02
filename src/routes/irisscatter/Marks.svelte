@@ -1,5 +1,5 @@
 <script>
-  export let flowers
+  export let filteredFlowers
   export let xScale
   export let yScale
   export let xValue
@@ -10,7 +10,7 @@
   export let colorValue
 </script>
 
-{#each flowers as d}
+{#each filteredFlowers as d}
 <circle
   cx={xScale(xValue(d))}
   cy={yScale(yValue(d))}

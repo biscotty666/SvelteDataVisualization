@@ -13,13 +13,9 @@
   const citiesProjection = geoNaturalEarth1()
 
   const sizeValue = (d) => {
-    // console.log(d)
     console.log(d['population'])
     return d.population
   }
-  // const sizeValue = cities.population
-  // console.log(Object.keys(cities))
-  // console.log(cities[0]['population'])
 
   const sizeScale = scaleSqrt()
     .domain([0, max(cities, sizeValue)])
