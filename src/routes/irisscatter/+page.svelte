@@ -3,7 +3,6 @@
   import AxisBottom from "./AxisBottom.svelte";
   import AxisLeft from "./AxisLeft.svelte";
   import Marks from "./Marks.svelte";
-  import ColorLegend from "./ColorLegend.svelte";
 
   export let data;
 
