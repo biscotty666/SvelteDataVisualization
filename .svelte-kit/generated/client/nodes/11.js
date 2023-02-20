@@ -1,1 +1,1 @@
-export { default as component } from "../../../../src/routes/mmworldmap/+page.svelte";
+export { default as component } from "../../../../src/routes/irisscatter/+page.svelte";

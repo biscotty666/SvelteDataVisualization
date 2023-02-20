@@ -40,3 +40,5 @@ export const dictionary = {
 export const hooks = {
 	handleError: (({ error }) => { console.error(error) }),
 };
+
+export { default as root } from '../root.svelte';

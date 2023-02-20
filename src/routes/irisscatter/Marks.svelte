@@ -1,5 +1,6 @@
 <script>
-  import { fade } from "svelte/transition";
+  import { fade, flip } from "svelte/transition";
+  import { quintOut } from "svelte/easing"
   export let filteredFlowers
   export let xScale
   export let yScale
@@ -18,7 +19,7 @@
   fill={colorScale(colorValue(d))}
   r={circleRadius}
   out:fade="{{delay: 250, duration: 200}}"
-  in:fade="{{delay: 100, duration: 200}}"
+  in:fade="{{delay: 250, duration: 200}}"
 >
  <title>{tooltipFormat(xValue(d))}</title>
 </circle>

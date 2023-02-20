@@ -22,8 +22,10 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"ajax": "^0.0.4",
 		"d3": "^7.8.2",
 		"flowbite-svelte": "^0.29.12",
+		"rxjs": "^7.8.0",
 		"sveltestrap": "^5.10.0",
 		"topojson-client": "^3.1.0",
 		"topojson-server": "^3.0.1",
