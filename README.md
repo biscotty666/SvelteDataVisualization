@@ -1,3 +1,5 @@
+Since people seem to be following this I should say that I'm not working on it right now because I'm doing some stuff with R. It would be great if someone picked up where I left off. If not I do plan to finish, just not yet.
+
 # Project  running at
 
 ### [Project (Vercel)](https://sveltekit-1-biscotty666.vercel.app/)
